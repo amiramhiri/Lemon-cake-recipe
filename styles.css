@@ -234,8 +234,6 @@ video {
     -webkit-text-stroke: 0.5px;
 }
 
-/* ----- Responsive adjustments ----- */
-
 @media (max-width: 768px) {
     .num {
         position: relative;
