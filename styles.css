@@ -25,17 +25,22 @@ img, video, canvas {
     background-position: center;
     margin-top: -2.5rem;
     padding-bottom: 30rem;
+    -webkit-mask-image: radial-gradient(15px at bottom, #0000 98%,#000 100%);
     mask-image: radial-gradient(15px at bottom, #0000 98%,#000 100%);
+    -webkit-mask-size: 30px 100%;
     mask-size: 30px 100%;
+    -webkit-mask-repeat: repeat-x;
     mask-repeat: repeat-x;
     animation: move 1s linear infinite;
 }
 
 @keyframes move {
     from {
+        -webkit-mask-position: 0 bottom;
         mask-position: 0 bottom;
     }
     to {
+        -webkit-mask-position: 30px bottom;
         mask-position: 30px bottom;
     }
 }
@@ -58,35 +63,18 @@ img, video, canvas {
 .en {
     justify-content: flex-start;
     padding-left: 1rem;
-    font-family: Raleway;
+    font-family: 'Raleway', sans-serif;
 }
 
 .em {
     position: absolute;
     right: 0;
     padding-right: 1rem;
-    font-family: Raleway;
+    font-family: 'Raleway', sans-serif;
 }
 
-.n .A {
-    list-style: none;
-    display: inline-block;
-    align-items: flex-start;
-    position: relative;
-    padding-left: 60%;
-    top: 24vh;
-}
-
-.n .B {
-    list-style: none;
-    display: inline-block;
-    align-items: flex-start;
-    position: relative;
-    padding-left: 60%;
-    top: 24vh;
-}
-
-
+.n .A,
+.n .B,
 .n .C {
     list-style: none;
     display: inline-block;
@@ -95,7 +83,6 @@ img, video, canvas {
     padding-left: 60%;
     top: 24vh;
 }
-
 
 .n li::before {
     content: "";
@@ -162,7 +149,7 @@ img, video, canvas {
 }
 
 .account:hover .pr {
-  opacity: 10;
+  opacity: 1;
   pointer-events: auto;
   transform: translateX(-50%) scale(1);
 }
@@ -218,7 +205,7 @@ video {
 
 #about {
   background: #a7c9ea;
-  padding: 1rem auto;
+  padding: 1rem 0;
   margin-top: 20rem;
   width: 100%;
 }
@@ -241,6 +228,6 @@ video {
 }
 
 .contact:hover {
-    transform: scale(10);
+    transform: scale(1.1);
     -webkit-text-stroke: 0.5px;
 }
