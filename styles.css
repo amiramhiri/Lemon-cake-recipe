@@ -30,18 +30,12 @@ img, video, canvas {
   height: auto;
   display: block;
 }
-
-/* ---------- shared page width ---------- */
-/* Keeps every top-level block from stretching edge-to-edge on large
-   screens ("too big for google/desktop view") while staying fluid
-   on small ones. No HTML changes required. */
 .hero, main, section, footer {
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* ---------- nav ---------- */
 .pill-nav {
   display: flex;
   flex-wrap: wrap;
@@ -96,7 +90,6 @@ img, video, canvas {
   opacity: 1;
 }
 
-/* ---------- hero content ---------- */
 .content, .hero {
   background: var(--cream);
   display: flex;
@@ -178,7 +171,6 @@ img, video, canvas {
   margin-top: 4px;
 }
 
-/* ---------- welcome / intro ---------- */
 .welcome {
   padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 2rem) 1.5rem;
   font-size: clamp(1.5rem, 4vw, 2.4rem);
@@ -234,7 +226,6 @@ img, video, canvas {
   transform: translateX(-50%) scale(1);
 }
 
-/* ---------- ingredients + video ---------- */
 #ing {
   display: flex;
   flex-wrap: wrap;
@@ -298,7 +289,6 @@ img, video, canvas {
   font-size: clamp(1rem, 2.2vw, 1.5rem);
 }
 
-/* ---------- recipe steps ---------- */
 #rec {
   padding: 2.5rem clamp(1rem, 4vw, 2rem) 0;
 }
@@ -314,7 +304,6 @@ img, video, canvas {
   margin-bottom: 0.75rem;
 }
 
-/* ---------- about / footer ---------- */
 #about {
   background: var(--band);
   padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 2rem);
@@ -346,8 +335,6 @@ img, video, canvas {
   transform: scale(1.1);
   -webkit-text-stroke: 0.5px;
 }
-
-/* ================= responsive breakpoints ================= */
 
 @media (max-width: 900px) {
   .content {
