@@ -1,148 +1,167 @@
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-    height: 100%;
-    background-color: #fef9f5;
-}
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-img, video, canvas {
-    max-width: 800px;
-    width: 100%;
-    height: auto;
+:root {
+  --brown: #86613c;
+  --tan: #b5885a;
+  --cream: #fef9f5;
+  --band: #d7ac8053;
+  --maroon: #670626;
+  --orange: #ff6634;
 }
 
-.content, .hero {
-  background: #fef9f5;
-  display: flex;
-  padding: 40px 60px;
+* , *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--cream);
   font-family: sans-serif;
 }
 
+img, video, canvas {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- shared page width ---------- */
+/* Keeps every top-level block from stretching edge-to-edge on large
+   screens ("too big for google/desktop view") while staying fluid
+   on small ones. No HTML changes required. */
+.hero, main, section, footer {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- nav ---------- */
 .pill-nav {
-  width: 125px;
-  height: 125px;
   display: flex;
-  gap: 40px;
-  padding: 16px 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(16px, 4vw, 40px);
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 14px clamp(20px, 5vw, 48px);
   border-radius: 40px;
-  margin-left: 500px;
 }
 
 .pill-nav a {
-  color: #86613c;
+  color: var(--brown);
   text-decoration: none;
   font-weight: 700;
-  font-size: 30px;
+  font-size: clamp(1.1rem, 2.4vw, 1.9rem);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  text-align: center;
 }
 
 .pill-nav a:hover {
   color: transparent;
 }
 
-.pill-nav a.home::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url('home.png');
-  background-size: 120%;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.pill-nav a.home:hover::before {
-  opacity: 1;
-}
-
-.pill-nav a.about::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url('about.png');
-  background-size: 120%;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.pill-nav a.about:hover::before {
-  opacity: 1;
-}
-
+.pill-nav a.home::before,
+.pill-nav a.about::before,
 .pill-nav a.ing::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('ing.png');
-  background-size: 120%;
+  background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
+.pill-nav a.home::before { background-image: url('home.png'); }
+.pill-nav a.about::before { background-image: url('about.png'); }
+.pill-nav a.ing::before { background-image: url('ing.png'); }
+
+.pill-nav a.home:hover::before,
+.pill-nav a.about:hover::before,
 .pill-nav a.ing:hover::before {
   opacity: 1;
 }
 
-.content {
+/* ---------- hero content ---------- */
+.content, .hero {
+  background: var(--cream);
   display: flex;
+  flex-wrap: wrap;
+  padding: clamp(20px, 4vw, 40px) clamp(20px, 5vw, 60px);
+}
+
+.content {
   align-items: center;
-  justify-content: space-around;
-  margin-top: 40px;
+  justify-content: center;
+  gap: clamp(24px, 5vw, 60px);
+  margin-top: 24px;
+}
+
+.left {
+  flex: 1 1 320px;
+  min-width: 280px;
+  text-align: center;
 }
 
 .left h1 {
-  color: #b5885a;
-  font-size: 80px;
+  color: var(--tan);
+  font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 900;
   font-style: italic;
-  margin-bottom: 20px;
+  margin: 0 0 12px;
 }
 
 .cake-img {
-  max-width: 700px;
-  display: block;
-  align-items: center;
-  margin-top: -125px;
-  margin-left: 70px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .baking-card {
-  background: #fef9f5;
+  background: var(--cream);
   border: 2px solid #1a1a1a1f;
   border-radius: 24px;
   padding: 30px;
-  width: 400px;
-  height: 450px;
+  width: 100%;
+  max-width: 360px;
+  flex: 1 1 300px;
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.05);
 }
 
 .baking-card h2 {
-  color: #86613c;
-  font-size: 26px;
-  margin-bottom: 24px;
-  margin-left: 25px;
+  color: var(--brown);
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  margin: 0 0 24px;
+  text-align: center;
 }
 
 .baking-card p {
   font-weight: 750;
-  color: #86613c;
+  color: var(--brown);
+  margin: 0;
 }
 
 .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   border-radius: 12px;
-  height: 150px;
-  width: 150px;
-  margin-bottom: 16px;
-  margin-left: 80px;
+  margin: 0 auto 20px;
 }
 
 .box:last-child {
@@ -150,32 +169,36 @@ img, video, canvas {
 }
 
 .box img {
-  margin-top: -25px;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
 }
 
 .box p {
-  margin-top: -13px;
-  margin-left: 15px;
+  margin-top: 4px;
 }
 
+/* ---------- welcome / intro ---------- */
 .welcome {
-    padding-top: 12rem;
-    padding-left: 2rem;
-    padding-bottom: 1.5rem;
-    font-size: 2.4rem;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 2rem) 1.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  text-align: center;
 }
 
 .notice {
-    padding-left: 1rem;
-    font-size: 1.35rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0 clamp(1rem, 5vw, 3rem) 1rem;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .account {
-    text-decoration: none;
-    color: #670626;
-    font-weight: bolder;
-    position: relative;
+  text-decoration: none;
+  color: var(--maroon);
+  font-weight: bolder;
+  position: relative;
   display: inline-block;
   padding-bottom: 1.5rem;
 }
@@ -185,11 +208,12 @@ img, video, canvas {
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%) scale(0.95);
-  width: 260px;
-  height: 195px;
-  background: #670626;
+  width: min(260px, 70vw);
+  height: auto;
+  aspect-ratio: 4 / 3;
+  background: var(--maroon);
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   padding: 4px;
   opacity: 0;
   pointer-events: none;
@@ -201,7 +225,6 @@ img, video, canvas {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   border-radius: 10px;
 }
 
@@ -211,186 +234,149 @@ img, video, canvas {
   transform: translateX(-50%) scale(1);
 }
 
+/* ---------- ingredients + video ---------- */
 #ing {
-  justify-content: space-around;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: flex-start;
-  gap: 40px;
-  flex-direction: row;
-  margin-top: 10rem;
+  gap: clamp(24px, 5vw, 40px);
+  margin-top: clamp(4rem, 10vw, 10rem);
+  padding: 0 clamp(1rem, 4vw, 2rem);
 }
 
 .text {
   display: flex;
   flex-direction: column;
-}
-
-.text video {
-  width: 500px;
-  max-width: 100%;
-  height: auto;
-  margin-top: 40px;
-  display: block;
-  margin-left: 25px;
-
-}
-
-.ing1 {
-    flex-wrap: wrap;
-    background-color: #d7ac8053;
-    text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 50px rgba(73, 56, 20, 0.568);
-    width: 500px;
-    height: 950px;
+  flex: 1 1 420px;
+  max-width: 500px;
 }
 
 .pp {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2.6vw, 2rem);
+  text-align: center;
+}
+
+.text video {
+  width: 100%;
+  height: auto;
+  margin-top: 24px;
+}
+
+.ing1 {
+  flex: 1 1 420px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  background-color: var(--band);
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 50px rgba(73, 56, 20, 0.568);
 }
 
 .ing1 h2, #rec h2 {
-    font-size: 2rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
 }
 
 #rec h2 {
-  margin-left: 30px;
+  margin-left: 0;
+  padding-left: clamp(1rem, 4vw, 30px);
 }
 
 .ing1 p, #rec p {
-    display: inline-flex;
-    padding-left: 1rem;
-    font-size: 1.5em;
-    font-family: Tahoma, sans-serif;
+  display: inline-flex;
+  padding-left: 1rem;
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  font-family: Tahoma, sans-serif;
 }
 
 .ing1 ul {
-    text-align: left;
-    padding-left: 30%;
-    font-size: 1.5rem;
+  text-align: left;
+  list-style-position: inside;
+  padding-left: clamp(1rem, 10%, 3rem);
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
 }
 
+/* ---------- recipe steps ---------- */
 #rec {
-    padding-top: 2.5rem;
+  padding: 2.5rem clamp(1rem, 4vw, 2rem) 0;
 }
 
 #rec ol {
-    padding-left: 6%;
-    font-size: 17px;
+  padding-left: 1.25rem;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  max-width: 800px;
+  margin: 0 auto;
 }
 
+#rec li {
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- about / footer ---------- */
 #about {
-  background: #d7ac8053;
-  padding: 5rem 0;
-  margin-top: 15rem;
-  width: 100%;
+  background: var(--band);
+  padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 2rem);
+  margin-top: clamp(4rem, 10vw, 15rem);
+  max-width: 100%;
+  border-radius: 0;
 }
 
-.cnct { 
+.cnct {
   color: #0300009f;
-  display: inline-block;
+  display: block;
   font-family: 'Times', serif;
-  font-size: 20px;
- text-align: left;
+  font-size: clamp(0.95rem, 2vw, 20px);
+  text-align: center;
   font-weight: bold;
   letter-spacing: 0.5px;
-  padding-left: 8px;
+  max-width: 700px;
+  margin: 0 auto 0.75rem;
 }
 
 .contact {
-    color: #ff6634;
-    text-decoration: none;
+  color: var(--orange);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease;
 }
 
 .contact:hover {
-    transform: scale(1.1);
-    -webkit-text-stroke: 0.5px;
+  transform: scale(1.1);
+  -webkit-text-stroke: 0.5px;
 }
 
-@media (max-width: 768px) {
-    .hero {
-        height: auto; 
-    }
+/* ================= responsive breakpoints ================= */
 
-    .pill-nav {
-      margin-left: 12px;
-    }
-
-    .content {
-        display: block;
-    }
-
-    .left h1 {
-      font-size: 50px;
-      margin-left: 120px;
-    }
-
-    .cake-img {
-      max-width: 450px;
-      padding-top: 18px;
-    }
-
-    .baking-card {
-      margin-left: 120px;
-      margin-top: 60px;
-      width: 400px;
-      height: 450px;
+@media (max-width: 900px) {
+  .content {
+    justify-content: center;
+    text-align: center;
+  }
 }
 
-    .notice {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        font-size: 1.1rem;
-    }
+@media (max-width: 600px) {
+  .pill-nav {
+    gap: 12px;
+    padding: 10px 16px;
+  }
 
-    .account .pr {
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%) scale(0.95);
-      width: 260px;
-      height: 195px;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      padding: 4px;
-}
+  .pill-nav a {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+  }
 
-    #about {
-        margin-top: 1.5rem;
-        padding: 1.5rem 1rem;
-    }
+  .left h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
 
-    .cnct {
-        display: block;
-        text-align: center;
-        padding-left: 0;
-        font-size: 1rem;
-    }
+  .baking-card {
+    padding: 20px;
+  }
 
-    #ing {
-      justify-content: space-around;
-      display: block;
-      margin-top: 10rem;
-    }
-
-    #ing video {
-      margin-bottom: 80px;
-      margin-left: 120px;
-    }
-
-    .pp {
-      margin-left: 20px;
-      font-size: 24px
-    }
-
-    .ing1 {
-    margin-left: 140px;
-    width: 480px;
-    height: 950px;}
-
-    #rec p {
-      font-size: 1.1rem;
-    }
+  #ing {
+    margin-top: 4rem;
+  }
 }
