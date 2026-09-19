@@ -171,6 +171,7 @@ img, video, canvas {
   margin-top: 4px;
 }
 
+/* ---------- welcome / intro ---------- */
 .welcome {
   padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 2rem) 1.5rem;
   font-size: clamp(1.5rem, 4vw, 2.4rem);
@@ -288,6 +289,7 @@ img, video, canvas {
   padding-left: clamp(1rem, 10%, 3rem);
   font-size: clamp(1rem, 2.2vw, 1.5rem);
 }
+
 
 #rec {
   padding: 2.5rem clamp(1rem, 4vw, 2rem) 0;
